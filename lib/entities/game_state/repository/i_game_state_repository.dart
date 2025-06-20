@@ -1,0 +1,18 @@
+import 'package:billiards/entities/game_state/entity/game_state.dart';
+import 'package:billiards/entities/game_state/repository/game_state_repository.dart';
+import 'package:billiards/entities/game_state/entity/i_game_state.dart';
+import 'package:billiards/services/store/main/services/use/providered_wrapper/i_providered_use_store_service_wrapper.dart';
+import 'package:riverpod/riverpod.dart';
+
+final gameStateRepositoryProvider =
+    Provider.autoDispose<IGameStateRepository>((ref) {
+  final store = ref.read(provideredUseStoreServiceProvider);
+  final repository = store.getProvideredRepository<GameState>(ref);
+  return GameStateRepository(repository);
+});
+
+abstract interface class IGameStateRepository {
+  Future<IGameState> get();
+  Future<int> update(IGameState gameState);
+  Future<int> reset();
+}

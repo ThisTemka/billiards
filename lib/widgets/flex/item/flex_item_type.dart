@@ -1,0 +1,1 @@
+enum FlexItemType { expanded, none }

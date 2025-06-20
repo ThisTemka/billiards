@@ -1,0 +1,1 @@
+enum IconType { mediumPrimary, error }

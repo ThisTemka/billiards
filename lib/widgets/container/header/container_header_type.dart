@@ -1,0 +1,4 @@
+enum ContainerHeaderType {
+  defaultContainerHeader,
+  card,
+}
